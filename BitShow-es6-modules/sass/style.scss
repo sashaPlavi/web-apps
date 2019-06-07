@@ -1,0 +1,23 @@
+$color: rgb(91, 91, 153);
+
+.container {
+  width: 100%;
+}
+.nav {
+  background-color: $color;
+}
+.title {
+  color: white;
+}
+
+.showTitle {
+  text-align: center;
+  color: $color;
+}
+.newPic {
+  width: 80%;
+}
+.movieTitle {
+  text-align: center;
+  color: $color;
+}

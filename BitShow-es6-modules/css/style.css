@@ -1,0 +1,21 @@
+.container {
+  width: 100%; }
+
+.nav {
+  background-color: #5b5b99; }
+
+.title {
+  color: white; }
+
+.showTitle {
+  text-align: center;
+  color: #5b5b99; }
+
+.newPic {
+  width: 80%; }
+
+.movieTitle {
+  text-align: center;
+  color: #5b5b99; }
+
+/*# sourceMappingURL=style.css.map */
