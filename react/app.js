@@ -1,6 +1,4 @@
-const beers = [
-    "salto", "brka", "lolihop", "shneider 7", "friday"
-]
+ 
 
 const userList = [
     {
@@ -607,22 +605,24 @@ const userList = [
 
 
 const Post = (props) => (
-    <div >
-        <h2>{props.title}</h2>
+    <div className = 'post' >
+        <h2 className= 'postTitle'>{props.title}</h2>
         <p>{props.description}</p>
+        <hr/>
     </div>
 );
 
 
 const PostsList = (props) => {
     return (
-        <div>
+        <div className='container'>
             {props.listOfPosts.map((post, i) => (
-                <Post title={post.title} description={post.body} />
+                <Post title={post.title} description={post.body} key ={i} />
             ))}
         </div>
     );
 }
+
 
 
 
