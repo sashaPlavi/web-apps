@@ -1,6 +1,15 @@
+
+const Post = (props) => (
+    <div className = 'post' >
+        <h2 className= 'postTitle'>{props.title}</h2>
+        <p>{props.description}</p>
+        <hr/>
+    </div>
+);
+const PostsList = () => {
  
 
-const userList = [
+        const userList = [
     {
         "userId": 1,
         "id": 1,
@@ -604,29 +613,38 @@ const userList = [
 ];
 
 
-const Post = (props) => (
-    <div className = 'post' >
-        <h2 className= 'postTitle'>{props.title}</h2>
-        <p>{props.description}</p>
-        <hr/>
-    </div>
-);
 
-
-const PostsList = (props) => {
     return (
         <div className='container'>
-            {props.listOfPosts.map((post, i) => (
+            {userList.map((post, i) => (
                 <Post title={post.title} description={post.body} key ={i} />
             ))}
         </div>
     );
 }
+const Title = (props) => {
+    return <h2>{props.title}</h2>
+}
+const Footer = (props) => {
+    return <h5>{props.text}</h5>
+}
+const FinalReactElement = (props) => {
+
+    return (
+   <div>
+   <Title title= 'ovo je naslov'/>
+ <PostsList/>
+   <Footer text='ovo je futer'/>
+
+   </div>
+    )
+}
+
+console.log(FinalReactElement);
 
 
 
-
-ReactDOM.render(<PostsList listOfPosts={userList} />, document.querySelector('.root'))
+ReactDOM.render(<FinalReactElement />, document.querySelector('.root'))
 
 
 {/* 
