@@ -6,18 +6,38 @@ import { Footer } from './Footer'
 import { Main } from './Main'
 import { fetchUsers } from './sevices/userService'
 
-const MyAppp = () => {
-    fetchUsers();
+class  MyAppp extends React.Component  {
+    constructor(props){
+        super (props);
+        this.state = {
+          users:[]
+        };
+    }
 
-    return (
-        <React.Fragment>
+    componentDidMount() {
+        fetchUsers()
+          .then(users => this.setState({ users }))
+          
+        }
+        
+        
+        
+        
+   render(){
+
+       console.log(this.state.users);
+       
+       return (
+           
+           <React.Fragment>
 
             <Header text='React Users' />
-            <Main users={[]} />
+            <Main users={this.state.users} />
             <Footer />
         </React.Fragment>
 
-    )
+)
 }
+}  
 
 export { MyAppp }
