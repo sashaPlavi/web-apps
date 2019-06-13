@@ -10,6 +10,7 @@ class MyAppp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+
       users: []
     };
   }
@@ -19,7 +20,9 @@ class MyAppp extends React.Component {
       .then(users => this.setState({ users }))
 
   }
-
+   myHendlerFunction(event){
+     console.log(event.target.value)
+   }
 
 
 
@@ -30,7 +33,9 @@ class MyAppp extends React.Component {
     return (
 
       <React.Fragment>
-        <button ></button>
+         <input type='button'
+          value='change layout'
+           onClick='this.myHendlerFunction' />
         <Header text='React Users' />
         <Main users={this.state.users} />
         <Footer />

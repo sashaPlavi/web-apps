@@ -5,6 +5,10 @@
   display: inline-block;
   margin: 2px;
 }
+.dipsplayCard{
+  width: 33%;
+  display:inline-block;
+}
 
 .postHeader {
   background-color: rgb(219, 116, 133);

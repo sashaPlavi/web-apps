@@ -7,7 +7,7 @@ const UserInfo = (props) => {
 
 
     return (
-        <div className="userInfo">
+        <div className="userList">
             <img src={props.user.img} className="photo" alt='user ' />
             <div className="userText">
                 <p> Full Name:{props.user.name} {props.user.lastname} </p>
