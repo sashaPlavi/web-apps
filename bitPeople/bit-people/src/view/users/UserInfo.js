@@ -10,10 +10,10 @@ const UserInfo = (props) => {
         <div className="userInfo">
             <img src={props.user.img} className="photo" alt='user ' />
             <div className="userText">
-                <p> Name:{props.user.name} {props.user.lastname} </p>
-                <p> Gender:{props.user.gender}</p>
-                <p> Id:{props.user.id}</p>
+                <p> Full Name:{props.user.name} {props.user.lastname} </p>
                 <p>Email :{props.user.hideEmail()}</p>
+                <p>Date of birth: {props.user.formatDate()} </p>
+
 
 
             </div>
