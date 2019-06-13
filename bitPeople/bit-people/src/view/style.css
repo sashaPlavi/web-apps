@@ -1,8 +1,9 @@
 .userInfo {
   background-color: whitesmoke;
-  width: 30%;
+  width: 100%;
 
   display: inline-block;
+  margin: 2px;
 }
 
 .postHeader {
