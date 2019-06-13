@@ -1,0 +1,19 @@
+.userInfo {
+  background-color: whitesmoke;
+  width: 30%;
+
+  display: inline-block;
+}
+
+.postHeader {
+  background-color: rgb(219, 116, 133);
+  text-align: center;
+  color: white;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.body {
+  width: 80%;
+  margin: 0 auto;
+}
