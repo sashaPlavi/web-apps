@@ -12,7 +12,7 @@ export const fetchUsers = () => {
             const lastname = user.name.last
             const gender = user.gender;
             const id = user.id.name;
-            const img = user.picture.medium;
+            const img = user.picture.large;
             const email = user.email;
             const birthDate = user.dob.date;
 
