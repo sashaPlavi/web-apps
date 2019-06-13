@@ -2,15 +2,15 @@ import React from 'react';
 
 
 const UserInfo = (props) => {
-//console.log(props.name );
+console.log(props );
 
     return (
         <div className="userInfo">
-            <img src={props.element.img} className="photo" />
+            <img src={props.user.img} className="photo" alt='user '/>
             <div className="userText">
-                <p> name:{props.element.name} </p>
-                <p> gender:{props.gender}</p>
-                <p> id:{props.element.id}</p>
+                <p> name:{props.user.name} </p>
+                <p> gender:{props.user.gender}</p>
+                <p> id:{props.user.id}</p>
  
                
             </div>

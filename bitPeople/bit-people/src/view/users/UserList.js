@@ -3,7 +3,7 @@ import { UserInfo } from './UserInfo'
 
 
 const UserList = (props) => {
-    //console.log(props.user);
+    console.log(props);
     
     return (
         <div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { UserListData } from '../shared/UserData'
+ 
 import { Header } from './Header'
 import { Footer } from './Footer'
 import { Main } from './Main'
