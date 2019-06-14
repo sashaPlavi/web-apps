@@ -4,53 +4,57 @@ import './style.css'
 import { Header } from './Header'
 import { Footer } from './Footer'
 import { Main } from './Main'
-import { fetchUsers } from './sevices/userService'
+import { fetchUsers, userservices } from './sevices/userService'
 
 class MyApp extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       users: [],
-      listLayout: 'list',
-
+      isGrid: true,
     };
-    this.onHeaderClick = this.onHeaderClick.bind(this);
 
+    this.changeLayout = this.changeLayout.bind(this);
+    this.onReloadClick = this.onReloadClick.bind(this)
   }
+
   componentDidMount() {
-    fetchUsers()
+    userservices.fetchUsers()
       .then(users => this.setState({
-        users,
+        users: users
 
       }))
 
   }
-  onHeaderClick() {
 
-    const listLayout = (this.state.listLayout === 'list') ? 'grid' : 'list'
+  onReloadClick(e) {
+    userservices.fetchUsers()
+      .then(users => this.setState({
+        users: users
+      }))
+  }
 
 
-    this.setState({ listLayout })
+  changeLayout() {
+    const newLayout = !this.state.isGrid;
 
+    this.setState({ isGrid: newLayout });
   }
 
 
   render() {
 
-    //console.log(this.state.users);
-    //console.log(this.state.listLayout);
-
     return (
 
       <React.Fragment>
+        < Header
+          isGrid={this.state.isGrid}
+          onLayoutChange={this.changeLayout}
+          onReloadClick={this.onReloadClick}
+        />
 
-        {/* <button onClick={this.onHeaderClick}><i class="fas fa-list"></i></button>
-        <button onClick={this.onHeaderClick}><i class="fas fa-grip-horizontal"></i></button> */}
-
-
-
-        < Header onHeaderClick={this.onHeaderClick} text='React Users' buttonChange={this.state.listLayout} />
-        <Main users={this.state.users} changeClass={this.state.listLayout} />
+        <Main users={this.state.users} isGridLayout={this.state.isGrid} />
         <Footer />
       </React.Fragment >
 

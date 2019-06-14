@@ -1,12 +1,17 @@
 import React from 'react';
-import { UserList } from './users/UserList';
+import { UserListItem } from './users/UserListItem';
+import { UserCard } from './users/UserCard';
 
 const Main = (props) => {
-    //console.log(props);
-
     return (
         <main className="body">
-            <UserList user={props.users} changeClass={props.changeClass} />
+            {props.users.map(user => {
+                if (props.isGridLayout) {
+                    return <UserCard user={user} />
+                }
+
+                return <UserListItem user={user} />;
+            })}
         </main>
     )
 }

@@ -2,18 +2,27 @@ import React from 'react';
 
 
 const Header = (props) => {
-    console.log(props);
-
-    const icon = (props.buttonChange === "grid") ? "fas fa-grip-horizontal 7x" : "fas fa-list 7x"
-    console.log(icon);
+    const layoutIconClassName = props.isGrid
+        ? "fas fa-list 7x"
+        : "fas fa-grip-horizontal 7x";
 
     return (
         <div className="postHeader">
 
-            <h3>{props.text}</h3>
-            <button className="buttonToChange"
-                onClick={props.onHeaderClick}>
-                <span className="buttonMedium"><i className={icon}></i></span>
+            <h3>React Users</h3>
+
+            <button
+                className="reload"
+                onClick={props.onReloadClick}
+            >
+                <i class="fas fa-redo-alt"></i>
+            </button>
+
+            <button
+                className="buttonToChange"
+                onClick={props.onLayoutChange}
+            >
+                <span className="buttonMedium"><i className={layoutIconClassName}></i></span>
             </button>
 
         </div>

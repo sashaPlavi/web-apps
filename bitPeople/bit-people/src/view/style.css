@@ -51,3 +51,9 @@ body {
 .userText {
   border-color: blanchedalmond;
 }
+
+.reload {
+  background: none;
+  border: none;
+  color: white;
+}
