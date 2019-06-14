@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { MyAppp } from './view/App';
+import { MyApp } from './view/App';
 
-ReactDOM.render(<MyAppp />, document.querySelector('#root'))
+ReactDOM.render(<MyApp />, document.querySelector('#root'))

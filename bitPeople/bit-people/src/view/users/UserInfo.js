@@ -2,12 +2,12 @@ import React from 'react';
 
 
 const UserInfo = (props) => {
-    console.log(props);
+    //console.log(props);
 
 
 
     return (
-        <div className="userInfo">
+        <div className={props.changeClass}>
             <img src={props.user.img} className="photo" alt='user ' />
             <div className="userText">
                 <p> Full Name:{props.user.name} {props.user.lastname} </p>

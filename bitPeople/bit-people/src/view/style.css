@@ -1,4 +1,8 @@
-.userInfo {
+body {
+  font-size: 16px;
+}
+
+.list {
   background-color: whitesmoke;
   width: 100%;
 
@@ -6,15 +10,33 @@
   margin: 2px;
 }
 
+.grid {
+  background-color: whitesmoke;
+  width: 33%;
+
+  display: inline-block;
+  margin: 2px;
+}
 .postHeader {
   background-color: rgb(219, 116, 133);
   text-align: center;
   color: white;
-  padding-bottom: 5px;
-  padding-top: 5px;
+  padding-bottom: 40px;
+  padding-top: 10px;
 }
 
 .body {
   width: 80%;
   margin: 0 auto;
+}
+
+.buttonToChange {
+  color: white;
+  background: none;
+  border: none;
+  padding: 5px;
+
+  position: relative;
+  float: right;
+  margin-right: 50px;
 }
