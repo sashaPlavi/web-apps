@@ -17,6 +17,7 @@ body {
   display: inline-block;
   margin: 2px;
 }
+
 .postHeader {
   background-color: rgb(219, 116, 133);
   text-align: center;
@@ -34,9 +35,19 @@ body {
   color: white;
   background: none;
   border: none;
-  padding: 5px;
+  margin-bottom: 45px;
 
   position: relative;
   float: right;
   margin-right: 50px;
+}
+
+.buttonMedium {
+  font-size: 30px;
+}
+.userText-f {
+  background-color: rgb(221, 171, 171);
+}
+.userText {
+  border-color: blanchedalmond;
 }

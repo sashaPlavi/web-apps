@@ -11,7 +11,10 @@ const Header = (props) => {
         <div className="postHeader">
 
             <h3>{props.text}</h3>
-            <button className="buttonToChange" onClick={props.onHeaderClick}><i className={icon}></i></button>
+            <button className="buttonToChange"
+                onClick={props.onHeaderClick}>
+                <span className="buttonMedium"><i className={icon}></i></span>
+            </button>
 
         </div>
     )

@@ -1,3 +1,4 @@
+import { isTSTypeOperator } from "@babel/types";
 
 
 export class MyUser {
@@ -25,4 +26,17 @@ export class MyUser {
         const date = new Date(this.birthDate);
         return date.toLocaleDateString('en-GB').split('/').join('.')
     }
+    isFemale() {
+        //console.log(this.gender);
+
+        return this.gender === "female"
+    }
 }
+
+
+// const cardColor= user.isFemale () ? "red" : ""
+
+// u div stavimo {cardColor}
+
+
+// u userItem isto  
