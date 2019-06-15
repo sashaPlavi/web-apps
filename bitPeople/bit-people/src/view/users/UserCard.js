@@ -3,6 +3,8 @@ import React from 'react';
 
 const UserCard = (props) => {
     const female = (props.user.isFemale()) ? "userText-f" : "userText";
+    //console.log(props);
+    
 
     return (
         <div className="grid">
