@@ -36,9 +36,9 @@ class MyApp extends React.Component {
     userservices.fetchUsers()
       .then(users => this.setState({
         users: users,
-        //isLoading:false
+        isLoading:false
       }))
-      //.then(e => this.endLoading())
+     // .then(e => this.setState({isLoading:false}))
       }
 
      

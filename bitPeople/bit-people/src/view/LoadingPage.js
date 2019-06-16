@@ -4,6 +4,8 @@ const LoadingPage = (props) =>{
  console.log(props);
  
 const loading = props.isLoading
+//const list = props.users.length
+//console.log(list);
 
 if(loading){
 

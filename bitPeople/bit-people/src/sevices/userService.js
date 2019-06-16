@@ -6,27 +6,39 @@ class UserService {
 
 
     fetchUsers = () => {
+        //const myUsers =[]
 
         return axios.get("https://randomuser.me/api/?results=50")
-            .then(users => users.data.results.map(user => {
-                //  console.log(user);
-
-                const name = user.name.first;
-                const lastname = user.name.last
-                const gender = user.gender;
-                const id = user.id.name;
-                const img = user.picture.medium;
-                const email = user.email;
-                const birthDate = user.dob.date;
-
-                const myuser = new MyUser(name, lastname, gender, id, img, email, birthDate)
-
-                return myuser
+            .then(users => {
+                   const Apiusers = users.data.results
+                  console.log(Apiusers);
+                  
+                  // const myuser = new MyUser(name, lastname, gender, id, img, email, birthDate)
+                  //myUsers.push(myuser)
+                  console.log(Apiusers);
+                const myUsers= Apiusers.map(user => new MyUser(user.name.first,
+                       user.name.last,
+                       user.gender,
+                       user.id.name,
+                       user.picture.medium,
+                       user.email,
+                       user.dob.date) )
+                  console.log(myUsers);
+                  
+                  return myUsers
+                  
+                 /*  const name = user.name.first;
+                  const lastname = user.name.last
+                  const gender = user.gender;
+                  const id = user.id.name;
+                  const img = user.picture.medium;
+                  const email = user.email;
+                  const birthDate = user.dob.date; */
             })
+            
 
 
-
-            )
+            
     }
 
 

@@ -29,7 +29,7 @@ const Main = (props) => {
               </div> 
 
               <div>
-                     <LoadingPage  isLoading= {isLoading}/>
+                     <LoadingPage  isLoading= {isLoading} users={props.users}/>
               </div>
             
   
