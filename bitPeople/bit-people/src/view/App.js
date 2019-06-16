@@ -14,23 +14,34 @@ class MyApp extends React.Component {
       users: [],
       isGrid: JSON.parse(localStorage.getItem('isGrid')),
        onQueryUserList:[],
+       isLoading:true
        
     };
 
     this.changeLayout = this.changeLayout.bind(this);
     this.onReloadClick = this.onReloadClick.bind(this);
     this.searchUsersOnChange= this.searchUsersOnChange.bind(this);
-    this.whileLoding= this.whileLoding.bind(this);
+    this.endLoading= this.endLoading.bind(this);
      
   }
+  endLoading(){
+    console.log(this.state.isLoading);
+   this.setState({isLoading:false},
+   () => console.log(this.state.isLoading)
+    )
+
+    }
 
   componentDidMount() {
     userservices.fetchUsers()
       .then(users => this.setState({
-        users: users
+        users: users,
+        //isLoading:false
       }))
+      //.then(e => this.endLoading())
+      }
 
-  }
+     
 
   onReloadClick(e) {
     userservices.fetchUsers()
@@ -60,15 +71,8 @@ class MyApp extends React.Component {
       
     })
     }
-    whileLoding(){
-    this.state.users?
-    this.setState({isLoading:true})
-     : this.setState({isLoading:false})
-      
-    }
-    componentWillMount(){
-      this.whileLoding()
-    }
+    
+    
 
 
   render() {
@@ -83,8 +87,8 @@ class MyApp extends React.Component {
         />
 
         <Main 
-        isLoading={this.state.isLoading}
-        users={this.state.users} 
+        users={this.state.users}
+         isLoading={this.state.isLoading}
         isGridLayout={this.state.isGrid} 
         searchUsersOnChange={this.searchUsersOnChange}
          searchList = {this.state.onQueryUserList}

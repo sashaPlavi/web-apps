@@ -12,7 +12,7 @@ const Main = (props) => {
     // console.log(isSearching);
      
      const isLoading = props.isLoading
-     console.log(isLoading);
+    // console.log(isLoading);
      
     return (
         <main className="body">
