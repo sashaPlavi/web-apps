@@ -1,15 +1,18 @@
 import React from 'react';
 import { UserListItem } from './users/UserListItem';
 import { UserCard } from './users/UserCard';
-import { Dropdown} from './Dropdown'
+import { Dropdown} from './Dropdown';
+import {LoadingPage} from './LoadingPage'
  
 
 const Main = (props) => {
-    console.log(props);
+   // console.log(props);
       
      const isSearching= props.searchList
-     console.log(isSearching);
+    // console.log(isSearching);
      
+     const isLoading = props.isLoading
+     console.log(isLoading);
      
     return (
         <main className="body">
@@ -24,6 +27,10 @@ const Main = (props) => {
                 <div className= 'dropdown'>
                      <Dropdown list = {isSearching}/>
               </div> 
+
+              <div>
+                     <LoadingPage  isLoading= {isLoading}/>
+              </div>
             
   
           

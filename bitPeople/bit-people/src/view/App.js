@@ -20,7 +20,8 @@ class MyApp extends React.Component {
     this.changeLayout = this.changeLayout.bind(this);
     this.onReloadClick = this.onReloadClick.bind(this);
     this.searchUsersOnChange= this.searchUsersOnChange.bind(this);
-    // this.saveState = this.saveState.bind(this)
+    this.whileLoding= this.whileLoding.bind(this);
+     
   }
 
   componentDidMount() {
@@ -58,9 +59,16 @@ class MyApp extends React.Component {
       onQueryUserList: newList
       
     })
-    
-     
- }
+    }
+    whileLoding(){
+    this.state.users?
+    this.setState({isLoading:true})
+     : this.setState({isLoading:false})
+      
+    }
+    componentWillMount(){
+      this.whileLoding()
+    }
 
 
   render() {
@@ -75,7 +83,7 @@ class MyApp extends React.Component {
         />
 
         <Main 
-        
+        isLoading={this.state.isLoading}
         users={this.state.users} 
         isGridLayout={this.state.isGrid} 
         searchUsersOnChange={this.searchUsersOnChange}
