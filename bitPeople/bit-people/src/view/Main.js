@@ -1,11 +1,15 @@
 import React from 'react';
 import { UserListItem } from './users/UserListItem';
 import { UserCard } from './users/UserCard';
-import { dropdown} from './Dropdown'
+import { Dropdown} from './Dropdown'
+ 
 
 const Main = (props) => {
     console.log(props);
-    
+      
+     const isSearching= props.searchList
+     console.log(isSearching);
+     
      
     return (
         <main className="body">
@@ -18,7 +22,7 @@ const Main = (props) => {
            />
             
                 <div className= 'dropdown'>
-                  
+                     <Dropdown list = {isSearching}/>
               </div> 
             
   

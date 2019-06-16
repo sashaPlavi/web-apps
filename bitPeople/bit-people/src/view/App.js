@@ -13,7 +13,8 @@ class MyApp extends React.Component {
     this.state = {
       users: [],
       isGrid: JSON.parse(localStorage.getItem('isGrid')),
-       onQueryUserList:[]
+       onQueryUserList:[],
+       
     };
 
     this.changeLayout = this.changeLayout.bind(this);
@@ -53,7 +54,11 @@ class MyApp extends React.Component {
     const newList= result.slice(0,10)
    //console.log(newList);
    
-    this.setState({onQueryUserList: newList})
+    this.setState({
+      onQueryUserList: newList
+      
+    })
+    
      
  }
 
@@ -74,7 +79,7 @@ class MyApp extends React.Component {
         users={this.state.users} 
         isGridLayout={this.state.isGrid} 
         searchUsersOnChange={this.searchUsersOnChange}
-        serchList = {this.state.onQueryUserList}
+         searchList = {this.state.onQueryUserList}
         />
         <Footer />
       </React.Fragment >
