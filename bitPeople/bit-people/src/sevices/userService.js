@@ -6,31 +6,31 @@ class UserService {
 
 
     fetchUsers = () => {
-         
+
 
         return axios.get("https://randomuser.me/api/?results=50")
             .then(users => {
-                   const Apiusers = users.data.results
-                  console.log(Apiusers);
-                  const myUsers= Apiusers.map(user => new MyUser(user.name.first,
-                         user.name.last,
-                         user.gender,
-                         user.id.name,
-                         user.picture.medium,
-                         user.email,
-                         user.dob.date) )
-                    console.log(myUsers);
-                    
-                    return myUsers
-                  
-                   
-                  
-                 
+                const Apiusers = users.data.results
+                console.log(Apiusers);
+                const myUsers = Apiusers.map(user => new MyUser(user.name.first,
+                    user.name.last,
+                    user.gender,
+                    user.id.name,
+                    user.picture.medium,
+                    user.email,
+                    user.dob.date))
+                console.log(myUsers);
+
+                return myUsers
+
+
+
+
             })
-            
 
 
-            
+
+
     }
 
 

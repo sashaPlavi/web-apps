@@ -12,6 +12,10 @@ export class MyUser {
         this.birthDate = birthDate;
     }
 
+    fullName() {
+        return this.name + " " + this.lastname
+    }
+
     hideEmail() {
 
         const hideEmail = this.email;

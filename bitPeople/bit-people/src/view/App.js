@@ -5,6 +5,8 @@ import { Header } from './Header'
 import { Footer } from './Footer'
 import { Main } from './Main'
 import { userservices } from '../sevices/userService'
+import { LoadingPage } from './LoadingPage';
+import { Dropdown } from './Dropdown'
 
 class MyApp extends React.Component {
   constructor(props) {
@@ -12,33 +14,39 @@ class MyApp extends React.Component {
 
     this.state = {
       users: [],
+      filteredUsers: [],
       isGrid: JSON.parse(localStorage.getItem('isGrid')),
-       onQueryUserList:[],
-       isLoading:true
-       
+      isLoading: true
+
     };
 
     this.changeLayout = this.changeLayout.bind(this);
     this.onReloadClick = this.onReloadClick.bind(this);
-    this.searchUsersOnChange= this.searchUsersOnChange.bind(this);
-    this.endLoading= this.endLoading.bind(this);
-     
+    this.searchUsersOnChange = this.searchUsersOnChange.bind(this);
+
+
   }
   componentDidMount() {
     userservices.fetchUsers()
       .then(users => {
-        this.setState({users: users}) 
-      this.setState({isLoading:false})
-    })
-     
-      }
+        this.setState({
+          users: users,
+          filteredUsers: users,
+          isLoading: false
+        })
+      })
 
-     onReloadClick(e) {
+  }
+
+  onReloadClick(e) {
+    this.setState({ isLoading: true })
     userservices.fetchUsers()
       .then(users => this.setState({
-        users: users
+        users: users,
+        filteredUsers: users,
+        isLoading: false
       }))
-      }
+  }
 
 
   changeLayout() {
@@ -47,25 +55,23 @@ class MyApp extends React.Component {
     this.setState({ isGrid: newLayout });
     localStorage.setItem('isGrid', newLayout);
   }
-  searchUsersOnChange(event){
-    const query = event.target.value
+
+  searchUsersOnChange(event) {
+    const query = event.target.value.toLowerCase()
     const userList = this.state.users
     //console.log(userList);
-    
-    const result = userList.filter(user => user.name.includes(query))
-    const newList= result.slice(0,10)
-   //console.log(newList);
-   
-    this.setState({
-      onQueryUserList: newList
-      
-    })
-    }
-    
-    
 
+    const filteredUsers = userList.filter(user => user.fullName().toLowerCase().includes(query))
+
+    this.setState({
+      filteredUsers
+    })
+  }
 
   render() {
+
+    const { isLoading } = this.state
+
 
     return (
 
@@ -75,14 +81,18 @@ class MyApp extends React.Component {
           onLayoutChange={this.changeLayout}
           onReloadClick={this.onReloadClick}
         />
+        {isLoading ? <div>
+          <LoadingPage />
+        </div> :
 
-        <Main 
-        users={this.state.users}
-         isLoading={this.state.isLoading}
-        isGridLayout={this.state.isGrid} 
-        searchUsersOnChange={this.searchUsersOnChange}
-         searchList = {this.state.onQueryUserList}
-        />
+          <Main
+            users={this.state.filteredUsers}
+            isLoading={this.state.isLoading}
+            isGridLayout={this.state.isGrid}
+            searchUsersOnChange={this.searchUsersOnChange}
+          />
+        }
+
         <Footer />
       </React.Fragment >
 
