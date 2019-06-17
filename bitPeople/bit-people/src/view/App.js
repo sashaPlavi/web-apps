@@ -34,21 +34,19 @@ class MyApp extends React.Component {
 
   componentDidMount() {
     userservices.fetchUsers()
-      .then(users => this.setState({
-        users: users,
-        isLoading:false
-      }))
-     // .then(e => this.setState({isLoading:false}))
+      .then(users => {
+        this.setState({users: users}) 
+      this.setState({isLoading:false})
+    })
+     
       }
 
-     
-
-  onReloadClick(e) {
+     onReloadClick(e) {
     userservices.fetchUsers()
       .then(users => this.setState({
         users: users
       }))
-  }
+      }
 
 
   changeLayout() {

@@ -9,12 +9,8 @@ const Main = (props) => {
    // console.log(props);
       
      const isSearching= props.searchList
-    // console.log(isSearching);
-     
-     const isLoading = props.isLoading
-    // console.log(isLoading);
-     
-    return (
+    const isLoading = props.isLoading
+     return (
         <main className="body">
           <input 
           type = 'text' 
