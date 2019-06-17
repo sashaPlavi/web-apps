@@ -19,7 +19,8 @@ const Main = (props) => {
 
     return (
         <main className="body">
-            <input
+            <span className="fafa"><i className="fa fa-search"></i></span>
+            <input className="inputPlace"
                 type='text'
                 placeholder='search users'
                 size='50'
