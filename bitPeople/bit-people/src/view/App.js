@@ -24,14 +24,6 @@ class MyApp extends React.Component {
     this.endLoading= this.endLoading.bind(this);
      
   }
-  endLoading(){
-    console.log(this.state.isLoading);
-   this.setState({isLoading:false},
-   () => console.log(this.state.isLoading)
-    )
-
-    }
-
   componentDidMount() {
     userservices.fetchUsers()
       .then(users => {
